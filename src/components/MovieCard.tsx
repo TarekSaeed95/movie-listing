@@ -1,12 +1,7 @@
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-  CardFooter,
-} from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Movie } from "@/types";
 import { Star } from "lucide-react";
+import Image from "next/image";
 
 type MovieCardProps = {
   movie: Movie;
@@ -16,7 +11,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   return (
     <Card className="w-full max-w-xs mx-auto overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
       <div className="relative overflow-hidden">
-        <img
+        <Image
           src={movie.poster}
           alt={movie.title}
           className="w-full h-[400px] object-contain transition-transform duration-300 hover:scale-105"
