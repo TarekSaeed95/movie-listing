@@ -8,7 +8,7 @@ export const SearchBar = () => {
   const router = useRouter();
   const handleClick = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      inputRef?.current?.["value"] !== ""
+      return inputRef?.current?.["value"] !== ""
         ? router.push(`?term=${inputRef?.current?.["value"]}`)
         : router.push("/");
     }
