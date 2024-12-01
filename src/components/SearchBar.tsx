@@ -25,7 +25,7 @@ export const SearchBar = () => {
         type="text"
         onKeyDown={(e) => handleClick(e)}
         className={
-          "input input-bordered md:input-lg h-9 w-full md:h-10 md:min-w-[419px] rounded-full outline-none placeholder:text-sm md:placeholder:text-lg  ps-8 md:ps-11 "
+          "input input-bordered border border-gray-400 md:input-lg h-9 w-full md:h-10 md:min-w-[419px] rounded-full outline-none placeholder:text-sm md:placeholder:text-lg  ps-8 md:ps-11 "
         }
         placeholder="Search"
       />
