@@ -1,4 +1,4 @@
-import { MovieCard, RatingFilter, SearchBar } from "@/components";
+import { EmptySearch, MovieCard, RatingFilter, SearchBar } from "@/components";
 import { MoviesResponse } from "@/types";
 
 type HomePageProps = {
@@ -31,12 +31,16 @@ export default async function page({ searchParams }: HomePageProps) {
         <SearchBar />
         <RatingFilter />
       </header>
-      <section
-        className="mt-10 px-10 grid justify-items-center gap-9 gap-y-6
+      {filteredMovies.length === 0 ? (
+        <EmptySearch />
+      ) : (
+        <section
+          className="mt-10 px-10 grid justify-items-center gap-9 gap-y-6
 lg:grid-cols-[repeat(auto-fill,minmax(220px,1fr))] xl:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] grid-cols-[repeat(auto-fill,minmax(220px,1fr))]"
-      >
-        {movieCardElement}
-      </section>
+        >
+          {movieCardElement}
+        </section>
+      )}
     </main>
   );
 }
