@@ -27,7 +27,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
         </div>
       </div>
       <CardHeader className="pb-2">
-        <CardTitle className="text-xl font-bold truncate">
+        <CardTitle className="text-xl font-bold line-clamp-2">
           {movie.title}
         </CardTitle>
       </CardHeader>
@@ -36,9 +36,6 @@ export const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
           Release Year: {movie.year}
         </p>
       </CardContent>
-      <CardFooter className="border-t pt-2">
-        <div className="w-full flex justify-between items-center"></div>
-      </CardFooter>
     </Card>
   );
 };
