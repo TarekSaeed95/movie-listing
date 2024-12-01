@@ -40,13 +40,13 @@ export default async function page({ searchParams }: HomePageProps) {
   });
   return (
     <main>
-      <header className="mx-4 flex  items-center justify-between gap-4">
+      <header className="mx-4 mt-5 flex  items-center justify-between gap-4">
         <SearchBar />
         <RatingFilter />
       </header>
       <section
         className="mt-10 px-10 grid justify-items-center gap-9 gap-y-6
-lg:grid-cols-[repeat(auto-fill,minmax(140px,1fr))] xl:grid-cols-[repeat(auto-fill,minmax(150px,1fr))] grid-cols-[repeat(auto-fill,minmax(150px,1fr))]"
+lg:grid-cols-[repeat(auto-fill,minmax(220px,1fr))] xl:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] grid-cols-[repeat(auto-fill,minmax(220px,1fr))]"
       >
         {movieCardElement}
       </section>

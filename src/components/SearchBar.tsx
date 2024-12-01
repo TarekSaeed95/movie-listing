@@ -14,7 +14,7 @@ export const SearchBar = () => {
     }
   };
   return (
-    <div className="relative w-full md:w-1/3 text-black mt-5">
+    <div className="relative w-full md:w-1/3 text-black ">
       <MdOutlineSearch
         className={
           "absolute top-1/2 -translate-y-1/2 text-lg md:text-[25px] left-3"

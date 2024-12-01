@@ -1,17 +1,44 @@
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 import { Movie } from "@/types";
-import Image from "next/image";
-import { FC } from "react";
+import { Star } from "lucide-react";
 
 type MovieCardProps = {
   movie: Movie;
 };
-export const MovieCard: FC<MovieCardProps> = ({ movie }) => {
+
+export const MovieCard: React.FC<MovieCardProps> = ({ movie }) => {
   return (
-    <section className="  [&_p]:text-white text-center   w-fit rounded-normal bg-black  rounded-3xl pb-3 overflow-hidden  ">
-      <Image width={220} height={310} src={movie.poster} alt={movie.title} />
-      <p className=" mb-2  ">{movie.title}</p>
-      <p className=" mb-2  ">{movie.year}</p>
-      <p className=" mb-2  ">{movie.rating}</p>
-    </section>
+    <Card className="w-full max-w-xs mx-auto overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+      <div className="relative overflow-hidden">
+        <img
+          src={movie.poster}
+          alt={movie.title}
+          className="w-full h-[400px] object-contain transition-transform duration-300 hover:scale-105"
+        />
+        <div className="absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded flex items-center">
+          <Star className="w-4 h-4 mr-1 text-yellow-400" fill="currentColor" />
+          <span className="text-sm">{movie.rating.toFixed(1)}</span>
+        </div>
+      </div>
+      <CardHeader className="pb-2">
+        <CardTitle className="text-xl font-bold truncate">
+          {movie.title}
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="flex-grow">
+        <p className="text-sm text-muted-foreground">
+          Release Year: {movie.year}
+        </p>
+      </CardContent>
+      <CardFooter className="border-t pt-2">
+        <div className="w-full flex justify-between items-center"></div>
+      </CardFooter>
+    </Card>
   );
 };
