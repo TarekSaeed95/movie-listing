@@ -1,23 +1,6 @@
 import { MovieCard, RatingFilter, SearchBar } from "@/components";
 import { MoviesResponse } from "@/types";
 
-async function fetchMovies(term?: string) {
-  try {
-    const MoviesRes = await fetch(
-      `https://www.freetestapi.com/api/v1/movies?search=${term}`
-    );
-
-    if (!MoviesRes.ok) {
-      throw new Error("Failed to fetch movies");
-    }
-
-    const MoviesData: MoviesResponse = await MoviesRes.json();
-    return MoviesData;
-  } catch (error) {
-    console.error("Failed to fetch movies:", error);
-  }
-}
-
 type HomePageProps = {
   searchParams: Promise<{
     term?: string;
@@ -28,7 +11,11 @@ export default async function page({ searchParams }: HomePageProps) {
   const searchTerm = await searchParams;
   const term = searchTerm.term ?? "";
   const rating = searchTerm.rating ?? "";
-  const MoviesData: MoviesResponse | undefined = await fetchMovies(term);
+  const MoviesRes = await fetch(
+    `https://www.freetestapi.com/api/v1/movies?search=${term}`
+  );
+  const MoviesData: MoviesResponse = await MoviesRes.json();
+
   const filteredMovies =
     rating && rating !== "all"
       ? MoviesData?.filter(
