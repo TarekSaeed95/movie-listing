@@ -7,9 +7,9 @@ export const EmptySearch = () => {
         <InboxIcon className="w-10 h-10 text-gray-500 dark:text-gray-400" />
       </div>
       <div className="space-y-2 text-center">
-        <h2 className="text-2xl font-bold tracking-tight">No Movies found</h2>
+        <h2 className="text-2xl font-bold tracking-tight">No movies found</h2>
         <p className="text-gray-500 dark:text-gray-400">
-          It looks like there're no movies that matches your search.
+          It looks like no movies match your current search or filters.
         </p>
       </div>
     </div>
